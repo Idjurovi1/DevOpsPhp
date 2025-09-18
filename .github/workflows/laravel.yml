@@ -1,0 +1,28 @@
+name: Laravel CI
+
+# okidač - ova akcija će se pokrenuti na svaki 'push' na 'main' granu i na svaki 'pull request' koji cilja 'main' granu
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  echo-job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Hello World
+        run: echo "Hello World"
+      - name: Echo Second Message
+        run: echo "Hello Again from step 2"
+
+  echo-job-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo from Job 2
+        run: echo "Pozdrav iz drugog joba"
+      - name: Echo Another from Job 2
+        run: echo "Ovo je drugi korak u drugom jobu"
